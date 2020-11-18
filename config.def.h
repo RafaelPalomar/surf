@@ -157,11 +157,11 @@ static Key keys[] = {
 	{ MODKEY,                GDK_KEY_u,      scroll,     { .i = 'l' } },
 
 
-	{ MODKEY|GDK_SHIFT_MASK, GDK_KEY_j,      zoom,       { .i = -1 } },
-	{ MODKEY|GDK_SHIFT_MASK, GDK_KEY_k,      zoom,       { .i = +1 } },
-	{ MODKEY|GDK_SHIFT_MASK, GDK_KEY_q,      zoom,       { .i = 0  } },
-	{ MODKEY,                GDK_KEY_minus,  zoom,       { .i = -1 } },
-	{ MODKEY,                GDK_KEY_plus,   zoom,       { .i = +1 } },
+	{ MODKEY|GDK_SHIFT_MASK, GDK_KEY_j,       zoom,       { .i = -1 } },
+	{ MODKEY|GDK_SHIFT_MASK, GDK_KEY_k,       zoom,       { .i = +1 } },
+	{ MODKEY,                GDK_KEY_0,       zoom,       { .i = 0  } },
+	{ MODKEY,                GDK_KEY_minus,   zoom,       { .i = -1 } },
+	{ MODKEY,                GDK_KEY_equal,   zoom,       { .i = +1 } },
 
 	{ MODKEY,                GDK_KEY_p,      clipboard,  { .b = 1 } },
 	{ MODKEY,                GDK_KEY_y,      clipboard,  { .b = 0 } },
@@ -183,6 +183,16 @@ static Key keys[] = {
 	{ MODKEY|GDK_SHIFT_MASK, GDK_KEY_v,      toggle,     { .i = Plugins } },
 	{ MODKEY|GDK_SHIFT_MASK, GDK_KEY_b,      toggle,     { .i = ScrollBars } },
 	{ MODKEY|GDK_SHIFT_MASK, GDK_KEY_m,      toggle,     { .i = Style } },
+
+  /* sc0ttj support special keyboard keys.. see this link: */
+  /* https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values */
+	{ 0,                     GDK_KEY_ZoomOut, zoom,       { .i = -1 } },
+	{ 0,                     GDK_KEY_ZoomIn,  zoom,       { .i = +1 } },
+	{ 0,                     GDK_KEY_Back,    navigate,   { .i = -1 } },
+	{ 0,                     GDK_KEY_Forward, navigate,   { .i = +1 } },
+	{ 0,                     GDK_KEY_Refresh, reload,     { .i = 0 } },
+	{ 0,                     GDK_KEY_Reload,  reload,     { .i = 0 } },
+	{ 0,                     GDK_KEY_Stop,    stop,       { 0 } },
 };
 
 /* button definitions */

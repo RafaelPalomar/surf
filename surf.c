@@ -31,6 +31,9 @@
 
 #define LENGTH(x)               (sizeof(x) / sizeof(x[0]))
 #define CLEANMASK(mask)         (mask & (MODKEY|GDK_SHIFT_MASK))
+#define LENGTH(x)        (sizeof(x) / sizeof(x[0]))
+/* sc0ttj support MOD1 key (usually ALT) in key bindings  */
+#define CLEANMASK(mask)  (mask & (MODKEY|GDK_SHIFT_MASK|GDK_MOD1_MASK))
 #define SETB(p, s)              [p] = { { .b = s }, }
 #define SETI(p, s)              [p] = { { .i = s }, }
 #define SETV(p, s)              [p] = { { .v = s }, }
