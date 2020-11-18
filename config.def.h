@@ -6,6 +6,38 @@ static char *styledir       = "~/.surf/styles/";
 static char *cachedir       = "~/.surf/cache/";
 static char *cookiefile     = "~/.surf/cookies.txt";
 
+/* sc0ttj  added lots of custom search engines:
+ *
+ * Note: any search in location bar that is not a URL, file
+ *       or prefixed custom search (below), will fall back
+ *       to using the first search engine in this list.
+ */
+static SearchEngine searchengines[] = {
+	{ "dg",  "https://duckduckgo.com/?q=%s"   },
+	{ "ar",  "https://archive.org/search.php?query=%s"   },
+	{ "aw",  "https://wiki.archlinux.org/index.php?search=%s"   },
+	{ "bbc", "https://www.bbc.co.uk/search?q=%s"   },
+	{ "gg",  "http://www.google.com/search?q=%s"   },
+	{ "gh",  "https://github.com/search?q=%s"   },
+	{ "gist", "https://gist.github.com/search?q=%s"   },
+	{ "gi",  "https://www.google.com/search?&q=%s&oq=%s"   },
+	{ "im",  "https://www.imdb.com/find?q=%s"   },
+	{ "man", "http://manpages.org/%s/1" },
+	{ "pf",  "https://forum.puppylinux.com/search.php?keywords=%s" },
+	{ "pl",  "https://ww1.put-locker.com/?s=%s" },
+	{ "sc",  "https://soundcloud.com/search?q=%s" },
+	{ "sp",  "https://startpage.com/%s/search" },
+	{ "so",  "https://stackoverflow.com/search?q=%s" },
+	{ "sx",  "https://stackexchange.com/search?q=%s" },
+	{ "tw",  "https://twitter.com/search?q=%s&src=typed_query" },
+	{ "txt",  "https://www.textise.net/showText.aspx?strURL=https%253A//www.google.com/search%253Fq%253D%s" },
+	{ "ud",  "https://www.urbandictionary.com/define.php?term=%s" },
+	{ "ux",  "https://unix.stackexchange.com/search?q=%s" },
+	{ "yt",  "https://www.youtube.com/results?search_query=%s" },
+	{ "wb",  "https://web.archive.org/web/*/%s" },
+	{ "wk",  "https://en.wikipedia.org/wiki/%s" },
+};
+
 /* Webkit default features */
 static Parameter defconfig[ParameterLast] = {
 	SETB(AcceleratedCanvas,  1),
